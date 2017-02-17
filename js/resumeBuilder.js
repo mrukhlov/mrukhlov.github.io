@@ -14,7 +14,7 @@ var bio = {
     },
     "skills": ["python", "js"],
     "display": function() {
-        displayInfo(HTMLheaderName, bio.name, "#header");
+        displayInfo(HTMLheaderName, inName(bio.name), "#header");
         displayInfo(HTMLheaderRole, bio.role, "#header");
         displayInfo(HTMLmobile, bio.contacts.mobile, "#header");
         displayInfo(HTMLemail, bio.contacts.email, "#header");
@@ -147,11 +147,11 @@ function displayInternationalize() {
 // 	return work_list;
 // }
 //
-// function inName(name) {
-// 	var name_list = name.split(' ');
-// 	name_list[1] = name_list[1].toUpperCase();
-// 	return name_list.join(' ')
-// }
+function inName(name) {
+	var name_list = name.split(' ');
+	name_list[1] = name_list[1].toUpperCase();
+	return name_list.join(' ')
+}
 //
 // console.log(inName(bio.name)==='Max RUKHLOV');
 

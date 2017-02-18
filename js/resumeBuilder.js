@@ -2,7 +2,7 @@
 This is empty on purpose! Your code to build the resume will go here.
  */
 var bio = {
-    "name": "Max Rukhlov",
+    "name": "Maxim Rukhlov",
     "role": "Human",
     "welcomeMessage": "Hey all :)",
     "biopic": "http://vignette1.wikia.nocookie.net/one-minute-meelee-fanon/images/5/57/Fry_660.jpg/revision/latest?cb=20160124000445",
@@ -12,19 +12,23 @@ var bio = {
         "github": "github.com/mrukhlov",
         "location": "Moscow"
     },
-    "skills": ["python", "js"],
+    "skills": ["Python", "Javascript", "Apache Velocity", "Chinese"],
     "display": function() {
         displayInfo(HTMLheaderName, inName(bio.name), "#header");
         displayInfo(HTMLheaderRole, bio.role, "#header");
-        displayInfo(HTMLmobile, bio.contacts.mobile, "#header");
-        displayInfo(HTMLemail, bio.contacts.email, "#header");
-        displayInfo(HTMLgithub, bio.contacts.github, "#header");
-        displayInfo(HTMLlocation, bio.contacts.location, "#header");
+        displayInfo(HTMLmobile, bio.contacts.mobile, "#topContacts");
+        displayInfo(HTMLemail, bio.contacts.email, "#topContacts");
+        displayInfo(HTMLgithub, bio.contacts.github, "#topContacts");
+        displayInfo(HTMLlocation, bio.contacts.location, "#topContacts");
+        displayInfo(HTMLmobile, bio.contacts.mobile, "#footerContacts");
+        displayInfo(HTMLemail, bio.contacts.email, "#footerContacts");
+        displayInfo(HTMLgithub, bio.contacts.github, "#footerContacts");
+        displayInfo(HTMLlocation, bio.contacts.location, "#footerContacts");
         displayInfo(HTMLbioPic, bio.biopic, "#header");
         displayInfo(HTMLwelcomeMsg, bio.welcomeMessage, "#header");
         displayInfo(HTMLskillsStart, '', "#header");
         bio.skills.forEach(function(skill) {
-            displayInfo(HTMLskills, skill, "#header");
+            displayInfo(HTMLskills, skill, "#skills");
         });
     }
 };
@@ -34,7 +38,7 @@ var education = {
             "name": "RSUH",
             "location": "Moscow",
             "degree": "MA",
-            "major": ["orienalistics"],
+            "majors": ["orienalistics"],
             "dates": "2007-2012",
             "url": "http://rggu.com",
         },
@@ -42,7 +46,7 @@ var education = {
             "name": "NCKU",
             "location": "Tainan",
             "degree": "MA",
-            "major": ["orienalistics"],
+            "majors": ["orienalistics"],
             "dates": "2010-2010",
             "url": "http://web.ncku.edu.tw/bin/home.php?Lang=en",
         },
@@ -63,20 +67,20 @@ var education = {
     "display": function() {
         displayInfo(HTMLschoolStart, '', "#education");
         this.schools.forEach(function(item) {
-            displayInfo(HTMLschoolName, item.name, "#education");
-            displayInfo(HTMLschoolDegree, item.degree, "#education");
-            displayInfo(HTMLschoolDates, item.dates, "#education");
-            displayInfo(HTMLschoolLocation, item.location, "#education");
-            item.major.forEach(function(maj) {
-                displayInfo(HTMLschoolMajor, maj, "#education");
+            displayInfo(HTMLschoolName, item.name, ".education-entry");
+            displayInfo(HTMLschoolDegree, item.degree, ".education-entry");
+            displayInfo(HTMLschoolDates, item.dates, ".education-entry");
+            displayInfo(HTMLschoolLocation, item.location, ".education-entry");
+            item.majors.forEach(function(maj) {
+                displayInfo(HTMLschoolMajor, maj, ".education-entry");
             })
         });
-        displayInfo(HTMLonlineClasses, '', "#education");
+        displayInfo(HTMLclassStart, '', "#education");
         this.onlineCourses.forEach(function(item) {
-            displayInfo(HTMLonlineTitle, item.title, "#education");
-            displayInfo(HTMLonlineSchool, item.school, "#education");
-            displayInfo(HTMLonlineDates, item.dates, "#education");
-            displayInfo(HTMLonlineURL, item.url, "#education");
+            displayInfo(HTMLonlineTitle, item.title, ".class-entry");
+            displayInfo(HTMLonlineSchool, item.school, ".class-entry");
+            displayInfo(HTMLonlineDates, item.dates, ".class-entry");
+            displayInfo(HTMLonlineURL, item.url, ".class-entry");
         });
     }
 };
@@ -92,11 +96,11 @@ var work = {
     "display": function() {
         displayInfo(HTMLworkStart, '', "#workExperience");
         this.jobs.forEach(function(item) {
-            displayInfo(HTMLworkEmployer, item.employer, "#workExperience");
-            displayInfo(HTMLworkTitle, item.title, "#workExperience");
-            displayInfo(HTMLworkDates, item.dates, "#workExperience");
-            displayInfo(HTMLworkLocation, item.location, "#workExperience");
-            displayInfo(HTMLworkDescription, item.description, "#workExperience");
+            displayInfo(HTMLworkEmployer, item.employer, ".work-entry");
+            displayInfo(HTMLworkTitle, item.title, ".work-entry");
+            displayInfo(HTMLworkDates, item.dates, ".work-entry");
+            displayInfo(HTMLworkLocation, item.location, ".work-entry");
+            displayInfo(HTMLworkDescription, item.description, ".work-entry");
         });
     }
 };
@@ -118,11 +122,11 @@ var projects = {
     "display": function() {
         displayInfo(HTMLprojectStart, '', "#projects");
         this.projects.forEach(function(item) {
-            displayInfo(HTMLprojectTitle, item.title, "#projects");
-            displayInfo(HTMLprojectDates, item.dates, "#projects");
-            displayInfo(HTMLprojectDescription, item.description, "#projects");
+            displayInfo(HTMLprojectTitle, item.title, ".project-entry");
+            displayInfo(HTMLprojectDates, item.dates, ".project-entry");
+            displayInfo(HTMLprojectDescription, item.description, ".project-entry");
             item.images.forEach(function(imgg) {
-                displayInfo(HTMLprojectHTMLprojectImage, imgg, "#projects");
+                displayInfo(HTMLprojectImage, imgg, ".project-entry");
             })
         });
     }
@@ -147,19 +151,18 @@ function displayInternationalize() {
 // 	return work_list;
 // }
 //
+
 function inName(name) {
 	var name_list = name.split(' ');
 	name_list[1] = name_list[1].toUpperCase();
 	return name_list.join(' ')
 }
-//
-// console.log(inName(bio.name)==='Max RUKHLOV');
 
 
 education.display();
 work.display();
 projects.display();
 bio.display();
-displayInternationalize();
+// displayInternationalize();
 
 $("#mapDiv").append(googleMap);

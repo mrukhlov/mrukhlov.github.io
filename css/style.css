@@ -11,7 +11,8 @@ h5,
 h6 {
 	padding: 0;
 	margin: 0;
-	font-family: "Roboto", sans-serif;
+	/*font-family: "Roboto", sans-serif;*/
+	font-family: 'Roboto Slab', serif;
 }
 
 .clear-fix {
@@ -19,14 +20,16 @@ h6 {
 }
 
 .education-entry,
+.class-entry,
 .work-entry,
 .project-entry {
 	padding: 0 5%;
+	padding-left: 20px;
 }
 
 h1 {
 	font-size: 40px;
-	color: #f5a623;
+	color: #ccf2ed;
 	line-height: 48px;
 	display: inline;
 }
@@ -64,9 +67,9 @@ h5 {
 
 .date-text {
 	font-style: italic;
-	font-size: 14px;
+	/*font-size: 14px;*/
 	color: #999;
-	line-height: 16px;
+	/*line-height: 16px;*/
 	float: left;
 }
 
@@ -100,16 +103,16 @@ a {
 }
 
 #skills-h3 {
-	color: #f5ae23;
+	color: #ccf2ed;
 	display: none;
 }
 
 .orange {
-	background-color: #f5ae23;
+	background-color: #ccf2ed;
 }
 
 .orange-text {
-	color: #f5ae23;
+	color: #ccf2ed;
 }
 
 .white-text {
@@ -169,6 +172,7 @@ img {
 
 span {
 	padding: 5px;
+	color: #f5ae23;
 }
 
 #lets-connect {

@@ -149,13 +149,13 @@ var projects = {
             "title": "Neighborhood Project",
             "dates": "February 2017",
             "description": "Interactive map of nearby places.",
-            "images": ["/images/neigh.jpg"]
+            "images": ["images/neigh.jpg"]
         },
         {
             "title": "Item Catalog App",
             "dates": "December 2016",
             "description": "Catalog app built on Flask framework.",
-            "images": ["/images/cat.png"]
+            "images": ["images/cat.png"]
         },
     ],
     "display": function() {

@@ -1,31 +1,32 @@
 var bio = {
     "name": "Maxim Rukhlov",
     "role": "Human",
-    "welcomeMessage": "Hey all :)",
+    "welcomeMessage": "Slacker, wannabe web developer, good duy.",
     "biopic": "http://vignette1.wikia.nocookie.net/one-minute-meelee-fanon/images/5/57/Fry_660.jpg/revision/latest?cb=20160124000445",
+    // "biopic": "/images/fry.jpg",
     "contacts": {
         "mobile": "+123456789",
-        "email": "asd@mail.ru",
+        "email": "mrukhlov@speaktoit.com",
         "github": "github.com/mrukhlov",
         "location": "Moscow"
     },
-    "skills": ["Python", "Javascript", "Apache Velocity", "Chinese"],
+    "skills": ["Python", "Javascript", "Apache Velocity", "Chinese Language", "Git", "Django", "SQL", "NixOS"],
     "display": function() {
-        displayInfo(HTMLheaderName, inName(bio.name), "#header");
-        displayInfo(HTMLheaderRole, bio.role, "#header");
-        displayInfo(HTMLmobile, bio.contacts.mobile, "#topContacts");
-        displayInfo(HTMLemail, bio.contacts.email, "#topContacts");
-        displayInfo(HTMLgithub, bio.contacts.github, "#topContacts");
-        displayInfo(HTMLlocation, bio.contacts.location, "#topContacts");
-        displayInfo(HTMLmobile, bio.contacts.mobile, "#footerContacts");
-        displayInfo(HTMLemail, bio.contacts.email, "#footerContacts");
-        displayInfo(HTMLgithub, bio.contacts.github, "#footerContacts");
-        displayInfo(HTMLlocation, bio.contacts.location, "#footerContacts");
-        displayInfo(HTMLbioPic, bio.biopic, "#header");
-        displayInfo(HTMLwelcomeMsg, bio.welcomeMessage, "#header");
-        displayInfo(HTMLskillsStart, '', "#header");
+        displayInfo("%data%", HTMLheaderName, inName(bio.name), "#header");
+        displayInfo("%data%", HTMLheaderRole, bio.role, "#header");
+        displayInfo("%data%", HTMLmobile, bio.contacts.mobile, "#topContacts");
+        displayInfo("%data%", HTMLemail, bio.contacts.email, "#topContacts");
+        displayInfo("%data%", HTMLgithub, bio.contacts.github, "#topContacts");
+        displayInfo("%data%", HTMLlocation, bio.contacts.location, "#topContacts");
+        displayInfo("%data%", HTMLmobile, bio.contacts.mobile, "#footerContacts");
+        displayInfo("%data%", HTMLemail, bio.contacts.email, "#footerContacts");
+        displayInfo("%data%", HTMLgithub, bio.contacts.github, "#footerContacts");
+        displayInfo("%data%", HTMLlocation, bio.contacts.location, "#footerContacts");
+        displayInfo("%data%", HTMLbioPic, bio.biopic, "#header");
+        displayInfo("%data%", HTMLwelcomeMsg, bio.welcomeMessage, "#header");
+        displayInfo("%data%", HTMLskillsStart, '', "#header");
         bio.skills.forEach(function(skill) {
-            displayInfo(HTMLskills, skill, "#skills");
+            displayInfo("%data%", HTMLskills, skill, "#skills");
         });
     }
 };
@@ -43,8 +44,24 @@ var education = {
             "name": "NCKU",
             "location": "Tainan",
             "degree": "MA",
-            "majors": ["orienalistics"],
-            "dates": "2010-2010",
+            "majors": ["Chinese Language"],
+            "dates": "July 2010-August 2010",
+            "url": "http://web.ncku.edu.tw/bin/home.php?Lang=en",
+        },
+        {
+            "name": "XMU",
+            "location": "Xiamen",
+            "degree": "MA",
+            "majors": ["Chinese Language"],
+            "dates": "2011-2012",
+            "url": "http://www.xmu.edu.cn/en/",
+        },
+        {
+            "name": "NCKU",
+            "location": "Tainan",
+            "degree": "MA",
+            "majors": ["Chinese Language"],
+            "dates": "September 2016-December 2016",
             "url": "http://web.ncku.edu.tw/bin/home.php?Lang=en",
         },
     ],
@@ -60,24 +77,41 @@ var education = {
             "title": "Front End Nano Degree",
             "school": "Udacity",
         },
-    ],
+        {
+            "dates": "February 2016 - March 2016",
+            "url": "https://www.coursera.org/learn/supervised-learning/home/welcome",
+            "title": "Supervised Learning",
+            "school": "Coursera",
+        },
+        {
+            "dates": "February 2016 - March 2016",
+            "url": "https://www.coursera.org/learn/supervised-learning/home/welcome",
+            "title": "Supervised Learning",
+            "school": "Coursera",
+        },
+        {
+            "dates": "January 2016 - February 2016",
+            "url": "http://en.specialist.ru",
+            "title": "Programming in HTML with JavaScript and CSS3",
+            "school": "«Specialist» Computer Training Center",
+        }],
     "display": function() {
-        displayInfo(HTMLschoolStart, '', "#education");
+        displayInfo("%data%", HTMLschoolStart, '', "#education");
         this.schools.forEach(function(item) {
-            displayInfo(HTMLschoolName, item.name, ".education-entry");
-            displayInfo(HTMLschoolDegree, item.degree, ".education-entry");
-            displayInfo(HTMLschoolDates, item.dates, ".education-entry");
-            displayInfo(HTMLschoolLocation, item.location, ".education-entry");
+            displayInfo("%data%", HTMLschoolName.replace('#', item.url), item.name, ".education-entry");
+            displayInfo("%data%", HTMLschoolDegree, item.degree, ".education-entry");
+            displayInfo("%data%", HTMLschoolDates, item.dates, ".education-entry");
+            displayInfo("%data%", HTMLschoolLocation, item.location, ".education-entry");
             item.majors.forEach(function(maj) {
-                displayInfo(HTMLschoolMajor, maj, ".education-entry");
-            })
+                displayInfo("%data%", HTMLschoolMajor, maj, ".education-entry");
+            });
         });
-        displayInfo(HTMLclassStart, '', "#education");
+        displayInfo("%data%", HTMLclassStart, '', "#education");
         this.onlineCourses.forEach(function(item) {
-            displayInfo(HTMLonlineTitle, item.title, ".class-entry");
-            displayInfo(HTMLonlineSchool, item.school, ".class-entry");
-            displayInfo(HTMLonlineDates, item.dates, ".class-entry");
-            displayInfo(HTMLonlineURL, item.url, ".class-entry");
+            displayInfo("%data%", HTMLonlineTitle, item.title, ".class-entry");
+            displayInfo("%data%", HTMLonlineSchool, item.school, ".class-entry");
+            displayInfo("%data%", HTMLonlineDates, item.dates, ".class-entry");
+            displayInfo("%data%", HTMLonlineURL, item.url, ".class-entry");
         });
     }
 };
@@ -88,16 +122,24 @@ var work = {
         "employer": "Api.ai",
         "dates": "in progress",
         "location": "Moscow",
-        'description': "Making corporate product awesome."
+        'description': "Training and supporting interactive Chinese language q&a system, user " +
+        "communication, setting and managing inner linguistic services, interaction with API."
+    },
+    {
+        "title": "Translator",
+        "employer": "Mental Games",
+        "dates": "January 2011-February 2011",
+        "location": "Moscow",
+        'description': "Application text translation, application testing."
     }],
     "display": function() {
-        displayInfo(HTMLworkStart, '', "#workExperience");
+        displayInfo("%data%", HTMLworkStart, '', "#workExperience");
         this.jobs.forEach(function(item) {
-            displayInfo(HTMLworkEmployer, item.employer, ".work-entry");
-            displayInfo(HTMLworkTitle, item.title, ".work-entry");
-            displayInfo(HTMLworkDates, item.dates, ".work-entry");
-            displayInfo(HTMLworkLocation, item.location, ".work-entry");
-            displayInfo(HTMLworkDescription, item.description, ".work-entry");
+            displayInfo("%data%", HTMLworkEmployer, item.employer, ".work-entry");
+            displayInfo("%data%", HTMLworkTitle, item.title, ".work-entry");
+            displayInfo("%data%", HTMLworkDates, item.dates, ".work-entry");
+            displayInfo("%data%", HTMLworkLocation, item.location, ".work-entry");
+            displayInfo("%data%", HTMLworkDescription, item.description, ".work-entry");
         });
     }
 };
@@ -105,44 +147,45 @@ var work = {
 var projects = {
     "projects": [{
             "title": "Neighborhood Project",
-            "dates": "",
+            "dates": "February 2017",
             "description": "Interactive map of nearby places.",
-            "images": []
+            "images": ["/images/neigh.jpg"]
         },
         {
             "title": "Item Catalog App",
-            "dates": "",
-            "description": "Catalog app.",
-            "images": []
+            "dates": "December 2016",
+            "description": "Catalog app built on Flask framework.",
+            "images": ["/images/cat.png"]
         },
     ],
     "display": function() {
-        displayInfo(HTMLprojectStart, '', "#projects");
+        displayInfo("%data%", HTMLprojectStart, '', "#projects");
         this.projects.forEach(function(item) {
-            displayInfo(HTMLprojectTitle, item.title, ".project-entry");
-            displayInfo(HTMLprojectDates, item.dates, ".project-entry");
-            displayInfo(HTMLprojectDescription, item.description, ".project-entry");
+            displayInfo("%data%", HTMLprojectTitle, item.title, ".project-entry");
+            displayInfo("%data%", HTMLprojectDates, item.dates, ".project-entry");
+            displayInfo("%data%", HTMLprojectDescription, item.description, ".project-entry");
             item.images.forEach(function(imgg) {
-                displayInfo(HTMLprojectImage, imgg, ".project-entry");
-            })
+                displayInfo("%data%", HTMLprojectImage, imgg, ".project-entry");
+            });
         });
     }
 };
 
-function displayInfo(tag, data, dom_element) {
-    var formatted = tag.replace("%data%", data);
+/*function take variable from helper.js as tag, object data as data and populates dom element with it*/
+function displayInfo(substring, tag, data, dom_element) {
+    var formatted = tag.replace(substring, data);
     $(dom_element).append(formatted);
 }
 
 /*internationalize*/
 function displayInternationalize() {
-    displayInfo(internationalizeButton, '', "#main");
+    displayInfo(substring, internationalizeButton, '', "#main");
 }
 
 function inName(name) {
 	var name_list = name.split(' ');
 	name_list[1] = name_list[1].toUpperCase();
-	return name_list.join(' ')
+	return name_list.join(' ');
 }
 
 education.display();

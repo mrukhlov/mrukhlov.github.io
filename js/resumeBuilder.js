@@ -1,7 +1,7 @@
 var bio = {
     "name": "Maxim Rukhlov",
     "role": "Human",
-    "welcomeMessage": "Slacker, wannabe web developer, good duy.",
+    "welcomeMessage": "Slacker, wannabe web developer, good guy.",
     "biopic": "http://vignette1.wikia.nocookie.net/one-minute-meelee-fanon/images/5/57/Fry_660.jpg/revision/latest?cb=20160124000445",
     // "biopic": "/images/fry.jpg",
     "contacts": {

@@ -1,6 +1,3 @@
-/*
-This is empty on purpose! Your code to build the resume will go here.
- */
 var bio = {
     "name": "Maxim Rukhlov",
     "role": "Human",
@@ -58,7 +55,7 @@ var education = {
             "school": "Udacity",
         },
         {
-            "dates": "February 2017 - Present",
+            "dates": "February 2017 - March 2017",
             "url": "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001",
             "title": "Front End Nano Degree",
             "school": "Udacity",
@@ -142,27 +139,14 @@ function displayInternationalize() {
     displayInfo(internationalizeButton, '', "#main");
 }
 
-
-// function locationizer(work_obj) {
-// 	var work_list = [];
-// 	work_obj.jobs.forEach(function (job) {
-// 		work_list.push(job.location)
-// 	});
-// 	return work_list;
-// }
-//
-
 function inName(name) {
 	var name_list = name.split(' ');
 	name_list[1] = name_list[1].toUpperCase();
 	return name_list.join(' ')
 }
 
-
 education.display();
 work.display();
 projects.display();
 bio.display();
-// displayInternationalize();
-
 $("#mapDiv").append(googleMap);
